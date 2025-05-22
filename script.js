@@ -23,9 +23,9 @@ async function getSongs() {
 
 async function main() {
     let songs = await getSongs();
-    
-    
-   
+
+
+
     songs.forEach((song) => {
         let li = document.createElement("li");
         li.innerHTML = `<i class="fa-solid fa-music"></i><span class="songtitle">${song.title}</span> <span class="link">${song.href}</span> <span class="play fa-solid fa-play"></span> `;
@@ -34,51 +34,78 @@ async function main() {
 
     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach((i) => {
         i.querySelector(".play").addEventListener("click", (e) => {
-            document.querySelector(".playbar").style.display="grid"
+            document.querySelector(".playbar").style.display = "grid"
             playMusic(i.querySelector(".link").innerHTML);
             playmain.classList.add("fa-pause");
             playmain.classList.remove("fa-play");
-           if(currentSong.paused){ e.target.classList.add("fa-pause");
-            e.target.classList.remove("fa-play");
-           }
-           else{
-            e.target.classList.add("fa-play");
-            e.target.classList.remove("fa-pause");
-           }
-          document.querySelector(".songinfo").textContent=i.querySelector(".songtitle").textContent;
-          
-            
+            if (currentSong.paused) {
+                e.target.classList.add("fa-pause");
+                e.target.classList.remove("fa-play");
+            }
+            else {
+                e.target.classList.add("fa-play");
+                e.target.classList.remove("fa-pause");
+            }
+            document.querySelector(".songinfo").textContent = i.querySelector(".songtitle").textContent;
+
+
         })
     })
 
-   playmain.addEventListener("click",function (e){
-        if(currentSong.paused){
+    playmain.addEventListener("click", function (e) {
+        if (currentSong.paused) {
             currentSong.play();
-             e.target.classList.add("fa-pause");
+            e.target.classList.add("fa-pause");
             e.target.classList.remove("fa-play");
-             }
-             else{
-                currentSong.pause();
-                e.target.classList.add("fa-play");
-                e.target.classList.remove("fa-pause");
+        }
+        else {
+            currentSong.pause();
+            e.target.classList.add("fa-play");
+            e.target.classList.remove("fa-pause");
 
-             }
+        }
     })
 
     currentSong.addEventListener("timeupdate", () => {
         let currentTime = formatTime(currentSong.currentTime);
         let duration = formatTime(currentSong.duration);
-        document.querySelector(".songtime").innerText=(`${currentTime}/${duration}`);
-        document.querySelector(".circle").style.left= (currentSong.currentTime/currentSong.duration)*100 + "%"
+        document.querySelector(".songtime").innerText = (`${currentTime}/${duration}`);
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%"
 
 
 
     });
 
-    document.querySelector(".seekbar").addEventListener("click",(e)=>{
+    document.querySelector(".seekbar").addEventListener("click", (e) => {
         console.log(e.offsetX)
-  document.querySelector(".circle").style.left = (e.offsetX/e.target.getBoundingClientRect().width)*100 + "%";
-  currentSong.currentTime= (currentSong.duration/e.target.getBoundingClientRect().width) * e.offsetX; 
+        document.querySelector(".circle").style.left = (e.offsetX / e.target.getBoundingClientRect().width) * 100 + "%";
+        currentSong.currentTime = (currentSong.duration / e.target.getBoundingClientRect().width) * e.offsetX;
+
+    });
+
+    document.querySelector(".openlibrary").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "0%";
+        document.querySelector(".left").style.opacity = "1";
+        document.querySelector(".right").style.gridColumn = "span 9";
+        document.querySelector(".left").style.position = "relative";
+        document.querySelector(".sidebar").style.display = "none";
+    })
+
+    document.querySelector(".librarymob").addEventListener("click", (e) => {
+        document.querySelector(".left").style.left = "0%";
+        document.querySelector(".left").style.zIndex = "10"
+        document.querySelector(".left").style.opacity = "1";
+
+        document.querySelector(".left").style.position = "absolute";
+    })
+
+    document.querySelector(".collapse-lib").addEventListener("click", () => {
+        console.log("clicked");
+        if (window.innerWidth > 467) { document.querySelector(".sidebar").style.display = "grid"; }
+        document.querySelector(".left").style.left = "-100%";
+        document.querySelector(".left").style.opacity = "0";
+        document.querySelector(".right").style.gridColumn = "span 11";
+        document.querySelector(".left").style.position = "absolute";
 
     })
 
@@ -101,5 +128,5 @@ function extractTitle(ogtitle) {
 function playMusic(track) {
     currentSong.src = track;
     currentSong.play();
-    
+
 }

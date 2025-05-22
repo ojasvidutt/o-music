@@ -35,14 +35,18 @@
             </svg>
             <input type="search" placeholder="Search for artists, songs, or podcasts" class="search">
         </div>
-        <div class="signup"></div>
+       
         <div class="user"><b>O</b></div>
+        <div class="fa-solid fa-book librarymob"></div>
     </header>
 
     <main>
-      
+           
             <div class="row">
-            <div class="left col-3">
+              <div class="sidebar">
+                <span class="openlibrary fa-solid fa-book"></span>
+               </div>
+            <div class="left col-3 col-p-12">
 
                 <div class="library">
                     <div class="flex">
@@ -55,20 +59,23 @@
                             d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z">
                         </path>
                     </svg>
-                    </div>   
+                    </div> 
+                    
                 </div>
 
                 <ul class="songlist">
                   
 
                 </ul>
+                 <i class="fa-solid fa-caret-left collapse-lib"></i> 
                 </div>
+                
             </div>
          
-            <div class="right col-9">
+            <div class="right col-9 col-t-11 col-p-12">
                 <h2>Playlists</h2>
                 <div class="card-container row">
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -76,7 +83,7 @@
                     <i class="fa-solid fa-play"></i>
             </button>
                  </div>
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -84,7 +91,7 @@
                     <i class="fa-solid fa-play"></i>
             </button>
                  </div>
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -92,7 +99,7 @@
                     <i class="fa-solid fa-play"></i>
             </button>
                  </div>
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -100,7 +107,7 @@
                     <i class="fa-solid fa-play"></i>
             </button>
                  </div>
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -108,7 +115,7 @@
                     <i class="fa-solid fa-play"></i>
             </button>
                  </div>
-                 <div class="card col-3">
+                 <div class="card col-3 col-p-12">
                     <img src="https://i.scdn.co/image/ab67706f00000002baf87fa47b70215fb7adf099" alt="">
                     <h3 class="card-title">TITLE</h3>
                     <p class="card-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, veniam?</p>
@@ -120,21 +127,20 @@
                
                  
             </div>
-            <div class="playbar">
-              <div class="flex">
-              <div class="songinfo"></div>
-              <div class="songbuttons flex">
-              <span class="prev fa-solid fa-backward-step"></span>
-              <span class="play fa-solid fa-play"></span>
-              <span class="next fa-solid fa-forward-step"></span>
-            </div>
-            <div class="songtime"></div>
-            </div>
-            <div class="seekbar"><div class="circle"></div></div>
-          </div>
           
           </div>
-          
+          <div class="playbar">
+            <div class="flex">
+            <div class="songinfo"></div>
+            <div class="songbuttons flex">
+            <span class="prev fa-solid fa-backward-step"></span>
+            <span class="play fa-solid fa-play"></span>
+            <span class="next fa-solid fa-forward-step"></span>
+          </div>
+          <div class="songtime"></div>
+          </div>
+          <div class="seekbar"><div class="circle"></div></div>
+        </div>
     </main>
 
 <script src="script.js"></script>
