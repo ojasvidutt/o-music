@@ -91,7 +91,7 @@ async function main() {
         document.querySelector(".sidebar").style.display = "none";
     })
 
-    document.querySelector(".librarymob").addEventListener("click", (e) => {
+    document.querySelector(".librarymob").addEventListener("touchstart", (e) => {
         document.querySelector(".left").style.left = "0%";
         document.querySelector(".left").style.zIndex = "10"
         document.querySelector(".left").style.opacity = "1";
@@ -100,6 +100,16 @@ async function main() {
     })
 
     document.querySelector(".collapse-lib").addEventListener("click", () => {
+        console.log("clicked");
+       
+        document.querySelector(".left").style.left = "-100%";
+        document.querySelector(".left").style.opacity = "0";
+        document.querySelector(".right").style.gridColumn = "span 12";
+
+        document.querySelector(".left").style.position = "absolute";
+        if (window.innerWidth > 467) { document.querySelector(".sidebar").style.display = "grid"; document.querySelector(".right").style.gridColumn = "span 11"; }
+    })
+    document.querySelector(".collapse-lib").addEventListener("touchstart", () => {
         console.log("clicked");
        
         document.querySelector(".left").style.left = "-100%";
